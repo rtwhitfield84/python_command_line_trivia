@@ -7,7 +7,9 @@ def trivia():
 
 	r = requests.get('https://nugacityquestions.firebaseio.com/{}.json'.format(question_key), headers=headers)
 
-	print(r.text)
+	for k,v in r.json().items():
+		print(k,v)
+	# print(r.json().keys())
 
 
 trivia()
