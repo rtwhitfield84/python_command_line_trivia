@@ -2,8 +2,10 @@ import requests
 import random
 from values import *
 
+
 def trivia():
 	question_key = random.randrange(9000,10000)
+	# score = 0
 	i = 1
 	r = requests.get('https://nugacityquestions.firebaseio.com/{}.json'
 					.format(question_key), headers=headers)
@@ -11,6 +13,8 @@ def trivia():
 	print(" ************************ \n "  
 		"Command Line Quiz Time! \n " 
 		"************************")
+	# print('Score ' + str(score))
+	print('Enter 9 to exit')
 
 	for k,v in r.json().items():
 		if str(k) == 'answer':
@@ -32,33 +36,32 @@ def trivia():
 	    print(x + 1, y + '\n')
 
 
-	# while True:
-	# 	try:
-	# 		user_answer=int(input("Enter answer: "))
+	while True:
+		try:
+			user_answer=int(input("Enter answer: "))
 
-	# 		if choice==1:
-	# 			kind()
-	# 			break
-	# 		elif choice==2:
-	# 			mean()
-	# 			break
-	# 		elif choice==3:
-	# 			weird()
-	# 			break
-	# 		elif choice==4:
-	# 			funny()
-	# 			break
-	# 		elif choice==5:
-	# 			fortune()
-	# 			break
-	# 		elif choice==6:
-	# 			quit()
-	# 			break
-	# 		else:
-	# 			print("Please enter a valid choice")
-	# 	except ValueError:
-	# 			print("Please enter a valid choice")
-	# exit
-
+			if user_answer==correct_number:
+				right()
+				break
+			elif user_answer!=correct_number:
+				wrong()
+				break
+			elif user_answer==9:
+				quit()
+			else:
+				print("Please enter a valid choice")
+		except ValueError:
+				print("Please enter a valid choice")
+	exit
+def right():
+	print("correct!")
+	# score += 100
+	trivia()
+def wrong():
+	print("wrong")
+	# score -= 100
+	trivia()
+def quit():
+	exit
 
 trivia()
