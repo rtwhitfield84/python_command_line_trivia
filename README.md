@@ -1,8 +1,7 @@
 # python_command_line_trivia
 
 
-A simple python command line trivia app 
-Sorry windows people..this is for my terminal friends
+A simple python command line trivia app for my terminal friends
 
 ## Getting Started
 
@@ -20,5 +19,8 @@ Fork or clone this repo
 
 ```
 cd 'this dir'
+'''
+run
+'''
 python main.py
 ```
