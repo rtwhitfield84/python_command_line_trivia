@@ -19,8 +19,11 @@ Fork or clone this repo
 
 ```
 cd 'this dir'
+
 '''
 run
+
 '''
 python main.py
+
 ```
