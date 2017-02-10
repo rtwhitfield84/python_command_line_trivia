@@ -54,11 +54,12 @@ def trivia(score):
 		except ValueError:
 				print("Please enter a valid choice")
 	exit
+	
 def right():
 	os.system("clear")
 	os.system('say -v "Good News" "correct" -r 300')
 
-	print("correct! \n")
+	print("CORRECT! \n")
 	trivia( 100)
 	
 def wrong():
@@ -69,6 +70,7 @@ def wrong():
 	
 def quit():
 	exit
+
 def welcome():
 	os.system('say -v Zarvox "Welcome to the command line quiz" -r 300')
 
