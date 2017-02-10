@@ -14,14 +14,7 @@ pyenv install 3.3.6
 
 ## Usage
 
-Fork or clone this repo 
-
-
-```
-cd 'this dir'
-
-'''
-run
+Fork or clone this repo cd into directory and run
 
 '''
 python main.py
