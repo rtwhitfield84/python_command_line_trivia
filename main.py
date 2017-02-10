@@ -91,7 +91,7 @@ def quit():
 
 def welcome():
 	'''voice prompt welcoming user to cl quiz'''
-	os.system('say -v Zarvox "Welcome to command line trivia time" -r 300')
+	os.system('say -v Zarvox "Welcome to command line trivia" -r 300')
 
 welcome()
 trivia()
