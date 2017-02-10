@@ -6,18 +6,31 @@ import os
 # perhaps write to text file
 
 def trivia(score):
+	'''
+		Main trivia gameplay function
+
+		Vars:
+			question_key - generates random number 
+			realted to question primary key
+
+			i - relates index number to correct answer and user choice
+
+			r - api call to get trivia question
+
+	'''
 	question_key = random.randrange(9000,10000)
 	i = 1
 	r = requests.get('https://nugacityquestions.firebaseio.com/{}.json'
 					.format(question_key))
 
-	print(" ************************ \n "  
-		"Command Line Quiz Time! \n " 
+	print("\n""************************ \n"  
+		"Command Line Quiz Time! \n" 
 		"************************")
 	print('Score ' + str(score))
 	print('Enter 9 to exit \n')
 
 	for k,v in r.json().items():
+		'''sets necessary gameplay values from json obj'''
 		if str(k) == 'answer':
 			correct_answer = v
 		if str(k) == 'question':
@@ -28,16 +41,20 @@ def trivia(score):
 
 
 	for i, j in enumerate(choices):
+		'''sets input value for correct answer'''
 		if str(j) == correct_answer:
 			correct_number = i + 1
 			print('Choices:')
 
+		'''prints answer choices'''
 	for x,y in enumerate(choices):
 	    print(x + 1, y + '\n')
 
 
 	while True:
+		'''enables continuous gameplay until user exits'''
 		try:
+			'''controls error'''
 			user_answer=int(input("Enter answer: "))
 
 			if user_answer==correct_number:
@@ -54,24 +71,28 @@ def trivia(score):
 		except ValueError:
 				print("Please enter a valid choice")
 	exit
-	
+
 def right():
+	'''clears terminal and alerts user of correct answer'''
 	os.system("clear")
 	os.system('say -v "Good News" "correct" -r 300')
-
 	print("CORRECT! \n")
 	trivia( 100)
 	
 def wrong():
+	'''clears terminal and alerts user of incorrect answer'''
 	os.system("clear")
 	os.system('say -v Deranged "wrong"')
 	print("WRONG \n")
 	trivia( -100)
 	
 def quit():
+	'''exits program'''
+	os.system('say -v Zarvox "Goodbye" -r 300')
 	exit
 
 def welcome():
+	'''voice prompt welcoming user to cl quiz'''
 	os.system('say -v Zarvox "Welcome to the command line quiz" -r 300')
 
 welcome()
