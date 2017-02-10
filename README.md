@@ -14,9 +14,14 @@ pyenv install 3.3.6
 
 ## Usage
 
-Fork or clone this repo cd into directory and run
+Fork or clone this repo
 
-'''
+```
+cd cli_trivia
+```
+Then execute 
+
+```
 python main.py
 
 ```
