@@ -2,10 +2,8 @@ import requests
 import random
 import os
 
-# need to persist score
-# perhaps write to text file
 
-def trivia(score):
+def trivia():
 	'''
 		Main trivia gameplay function
 
@@ -23,10 +21,10 @@ def trivia(score):
 	r = requests.get('https://nugacityquestions.firebaseio.com/{}.json'
 					.format(question_key))
 
-	print("\n""************************ \n"  
-		"Command Line Quiz Time! \n" 
-		"************************")
-	print('Score ' + str(score))
+	print("\n""************************* \n"  
+		"Command Line Trivia Time! \n" 
+		"*************************")
+
 	print('Enter 9 to exit \n')
 
 	for k,v in r.json().items():
@@ -77,14 +75,14 @@ def right():
 	os.system("clear")
 	os.system('say -v "Good News" "correct" -r 300')
 	print("CORRECT! \n")
-	trivia( 100)
+	trivia()
 	
 def wrong():
 	'''clears terminal and alerts user of incorrect answer'''
 	os.system("clear")
 	os.system('say -v Deranged "wrong"')
 	print("WRONG \n")
-	trivia( -100)
+	trivia()
 	
 def quit():
 	'''exits program'''
@@ -93,7 +91,7 @@ def quit():
 
 def welcome():
 	'''voice prompt welcoming user to cl quiz'''
-	os.system('say -v Zarvox "Welcome to the command line quiz" -r 300')
+	os.system('say -v Zarvox "Welcome to command line trivia time" -r 300')
 
 welcome()
-trivia(0)
+trivia()
