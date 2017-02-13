@@ -8,7 +8,7 @@ def trivia():
 		Main trivia gameplay function
 
 		Vars:
-			question_key - generates random number 
+			question_key - generates random number
 			realted to question primary key
 
 			i - relates index number to correct answer and user choice
@@ -21,8 +21,8 @@ def trivia():
 	r = requests.get('https://nugacityquestions.firebaseio.com/{}.json'
 					.format(question_key))
 
-	print("\n""************************* \n"  
-		"Command Line Trivia Time! \n" 
+	print("\n""************************* \n" 
+		"Command Line Trivia Time! \n"
 		"*************************")
 
 	print('Enter 9 to exit \n')
@@ -34,7 +34,7 @@ def trivia():
 		if str(k) == 'question':
 			question = v
 		if str(k) == 'choices':
-			choices = v 
+			choices = v
 	print('Q: ' + question + '\n')
 
 
@@ -93,5 +93,6 @@ def welcome():
 	'''voice prompt welcoming user to cl quiz'''
 	os.system('say -v Zarvox "Welcome to command line trivia" -r 300')
 
-welcome()
-trivia()
+if __name__ == '__main__':
+	welcome()
+	trivia()
