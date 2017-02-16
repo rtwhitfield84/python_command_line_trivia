@@ -8,8 +8,8 @@ A simple python command line trivia app for my terminal friends
 Make sure you have python 3 installed
 
 ```
-brew install pyenv
-pyenv install 3.3.6
+brew install python3
+
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ pyenv install 3.3.6
 Fork or clone this repo
 
 ```
-cd cli_trivia
+cd parent dir
 ```
 Then execute 
 
